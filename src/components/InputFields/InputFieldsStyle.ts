@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputStyle = styled.form`
+export const InputStyle = styled.div`
   label {
     position: relative;
     display: block;

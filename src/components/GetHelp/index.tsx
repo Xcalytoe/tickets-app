@@ -55,9 +55,9 @@ const GetHelp = () => {
             />
           </svg>
         </Link>
-        <div className="form">
+        <form className="form">
           <Search placeholder="Search support forum" onSubmit={handleSearch} />
-        </div>
+        </form>
       </main>
     </GetHelpContainer>
   );
