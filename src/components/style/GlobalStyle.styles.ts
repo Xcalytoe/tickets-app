@@ -32,19 +32,16 @@ img{
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  background: var( --secondary-bg);
   /* background-color: var( --background-light2); */
  }
 
-p,
-a {
-    font-family: var(--Roboto);
-
-}
 h1,
 h2,
 h3,
 h4,
-h6 {
-  font-family: var(--RobotoCondensed);
+h6 ,p,
+a {
+  font-family: var(--Roboto);
 }
 `;

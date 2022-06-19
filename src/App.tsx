@@ -15,6 +15,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Support />} />
+          {/* 404 rounte */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
