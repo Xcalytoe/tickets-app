@@ -9,7 +9,7 @@ const MyTickets = () => {
     console.log();
   };
   const selectOption = [
-    { id: 1, name: "All", value: "all", count: 20 },
+    { id: 1, name: "All Tickets", value: "all", count: 20 },
     { id: 2, name: "Open", value: "open", count: 5 },
     { id: 3, name: "Resolved", value: "resolved", count: 5 },
     { id: 4, name: "Feedback", value: "feedback", count: 5 },

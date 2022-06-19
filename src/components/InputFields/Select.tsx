@@ -75,6 +75,11 @@ const DropDownContainer = styled.div`
 const DropDownHeader = styled.div<{ type: string }>`
   ${variables}
   cursor: pointer;
+  max-width: 120px;
+  align-items: center;
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
   p {
     font-style: normal;
     font-weight: 500;
@@ -82,6 +87,8 @@ const DropDownHeader = styled.div<{ type: string }>`
     line-height: 30px;
     letter-spacing: 0.26px;
     color: var(--primary-dark);
+    flex-grow: 1;
+    max-width: 65px;
   }
   div {
     display: flex;

@@ -29,7 +29,7 @@ export const TicketsContainer = styled.div`
         color: var(--secondary-text);
         max-width: 100px;
       }
-      div {
+      .ticket {
         display: flex;
         align-items: center;
         justify-content: flex-end;
