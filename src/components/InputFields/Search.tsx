@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { ISearch } from "../../helper/Typeface";
 import { InputStyle } from "./InputFieldsStyle";
 
-const Search = ({ placeholder, onSubmit }: ISearch) => {
-  const [text, setText] = useState("");
+const Search = ({ placeholder, onChange }: ISearch) => {
+  //   const [text, setText] = useState("");
   return (
-    <InputStyle onSubmit={(e) => onSubmit(e, text)}>
+    <InputStyle>
       <label>
         <input
           type="search"
           placeholder={placeholder}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => {
+            // setText(e.target.value);
+            onChange(e, e.target.value);
+          }}
         />
         <button>
           <svg

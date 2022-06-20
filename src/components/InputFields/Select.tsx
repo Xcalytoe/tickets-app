@@ -75,7 +75,7 @@ const DropDownContainer = styled.div`
 const DropDownHeader = styled.div<{ type: string }>`
   ${variables}
   cursor: pointer;
-  max-width: 120px;
+  max-width: 130px;
   align-items: center;
   display: flex;
   column-gap: 10px;
@@ -106,7 +106,8 @@ const DropDownHeader = styled.div<{ type: string }>`
     font-size: 11px;
     line-height: 12px;
     letter-spacing: 0.26px;
-    color: var(--primary-dark);
+    color: ${({ type }) =>
+      type === "all" ? "var(--primary-dark)" : "var(--white)"};
     background: ${({ type }) =>
       type === "all"
         ? "var(--default-bg)"
@@ -171,7 +172,8 @@ const ListItem = styled.li<{ type: string }>`
     font-size: 11px;
     line-height: 12px;
     letter-spacing: 0.26px;
-    color: var(--primary-dark);
+    color: ${({ type }) =>
+      type === "all" ? "var(--primary-dark)" : "var(--white)"};
     background: ${({ type }) =>
       type === "all"
         ? "var(--default-bg)"

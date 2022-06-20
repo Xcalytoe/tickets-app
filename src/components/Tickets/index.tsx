@@ -1,22 +1,32 @@
 import React from "react";
+import {
+  useSearchText,
+  useSelectFilter,
+} from "../../helper/data-store/tickets";
 import Search from "../InputFields/Search";
 import Select from "../InputFields/Select";
+import Table from "./Table";
 import { TicketsContainer } from "./Tickets.styled";
 
 const MyTickets = () => {
+  const setSearchText = useSearchText(({ setSearchText }) => setSearchText);
+  const setSelectFilter = useSelectFilter(
+    ({ setSelectFilter }) => setSelectFilter
+  );
   const handleSearch = (e: React.SyntheticEvent, value: string) => {
     e.preventDefault();
-    console.log();
+    setSearchText(value); // set item to global state
   };
   const selectOption = [
     { id: 1, name: "All Tickets", value: "all", count: 20 },
     { id: 2, name: "Open", value: "open", count: 5 },
     { id: 3, name: "Resolved", value: "resolved", count: 5 },
     { id: 4, name: "Feedback", value: "feedback", count: 5 },
+    { id: 5, name: "Empty ", value: "empty", count: 0 },
   ];
 
   const onChange = (value: string) => {
-    console.log(value);
+    setSelectFilter(value); // set item to global state
   };
 
   return (
@@ -32,12 +42,13 @@ const MyTickets = () => {
                 defaultOption={selectOption[0]}
               />
             </div>
-            <form className="form">
-              <Search placeholder="Search Tickets" onSubmit={handleSearch} />
-            </form>
+            <div className="form">
+              <Search placeholder="Search Tickets" onChange={handleSearch} />
+            </div>
           </div>
         </div>
       </header>
+      <Table />
     </TicketsContainer>
   );
 };
