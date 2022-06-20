@@ -11,6 +11,7 @@ import {
 } from "../../helper/data-store/tickets";
 import filterLodash from "lodash/filter";
 import { IGetSample } from "../../helper/Typeface";
+import FilterData from "../EmptyState/FilterData";
 
 const Table = () => {
   const { mutate, isLoading, data } = useFetchTickets();
@@ -20,7 +21,7 @@ const Table = () => {
   const selectFilter = useSelectFilter(({ selectFilter }) => selectFilter);
   const searchText = useSearchText(({ searchText }) => searchText);
 
-  const [displayTickets, setDisplayTickets] = useState<unknown[]>();
+  const [displayTickets, setDisplayTickets] = useState<IGetSample[]>([]);
 
   useEffect(() => {
     mutate();
@@ -42,7 +43,7 @@ const Table = () => {
 
   //  filter data from search
   useEffect(() => {
-    handleSearchFilter();
+    setDisplayTickets(handleSearchFilter());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
 
@@ -55,27 +56,23 @@ const Table = () => {
             (item: IGetSample) =>
               item.status === "resolved" || "open" || "feedback"
           )
-        : filterLodash(
-            getTickets,
-            (item: IGetSample) => item.status === selectFilter
-          );
+        : filterLodash(getTickets, (item: any) => item.status === selectFilter);
 
     setDisplayTickets(sortedData); // save in state
   };
 
   const handleSearchFilter = () => {
-    return getTickets.filter((val: any) => {
+    return getTickets.filter((val: IGetSample) => {
       if (searchText === "") {
-        console.log(val, "valllllll");
-
-        return setDisplayTickets(val);
+        return val;
       } else if (
         val.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
       ) {
-        return setDisplayTickets(val);
-      } else {
         return val;
       }
+      //  else {
+      //   return null;
+      // }
     });
   };
 
@@ -84,7 +81,7 @@ const Table = () => {
 
   const ticketsTable = emptyGlobalFilter ? (
     Array.isArray(displayTickets) &&
-    displayTickets?.map((item: any) => {
+    displayTickets?.map((item: IGetSample) => {
       const staff = item.latest_post_author.is_staff;
       return (
         <div key={item.id} className="table-row flex">
@@ -167,7 +164,14 @@ const Table = () => {
           <Spinner colorLight="#ededed" colorDark=" #333333" />
         </div>
       )}
-      {ticketsTable}
+      {/* display when search is empty or when select filter is empty  */}
+      {displayTickets?.length === 0 && emptyGlobalFilter && searchText ? (
+        <FilterData />
+      ) : displayTickets?.length === 0 && emptyGlobalFilter ? (
+        <LoadedData />
+      ) : (
+        ticketsTable
+      )}
     </TableStyled>
   );
 };
