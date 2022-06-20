@@ -105,6 +105,16 @@ export const TableStyled = styled.div`
       max-width: 150px;
       flex-grow: 1;
       flex-shrink: 0;
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
     }
     .ticket {
       flex-basis: 313px;
