@@ -6,6 +6,7 @@ export const GetHelpContainer = styled.section`
     margin: auto;
     background: var(--white);
     border-radius: 4px;
+    padding: 0 10px;
     header {
       border-bottom: 1px solid var(--border);
       .header {
@@ -13,15 +14,14 @@ export const GetHelpContainer = styled.section`
         align-items: center;
         justify-content: space-between;
         column-gap: 20px;
-        height: 90px;
-
-        padding-left: 30px;
-        padding-right: 30px;
+        flex-wrap: wrap;
+        padding: 25px 30px;
         div {
           display: flex;
           align-items: center;
           justify-content: space-between;
           column-gap: 20px;
+          flex-grow: 1;
         }
         p {
           font-style: normal;
@@ -30,6 +30,8 @@ export const GetHelpContainer = styled.section`
           line-height: 30px;
           letter-spacing: 0.26px;
           color: var(--primary-dark);
+          text-align: center;
+          flex-grow: 1;
         }
         button {
           font-style: normal;
@@ -96,7 +98,7 @@ export const GetHelpContainer = styled.section`
         font-style: normal;
         font-weight: 400;
         font-size: 15px;
-        line-height: 30%;
+        line-height: 130%;
         letter-spacing: 0.26px;
         color: var(--primary-text);
         margin-bottom: 10px;

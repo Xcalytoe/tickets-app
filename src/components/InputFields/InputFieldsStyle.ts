@@ -6,7 +6,7 @@ export const InputStyle = styled.div`
     display: block;
     width: 100%;
     height: 40px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     input {
       background: var(--default-bg);
       border: 1px solid var(--default-bg);

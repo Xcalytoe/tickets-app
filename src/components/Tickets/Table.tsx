@@ -69,10 +69,9 @@ const Table = () => {
         val.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
       ) {
         return val;
+      } else {
+        return null;
       }
-      //  else {
-      //   return null;
-      // }
     });
   };
 

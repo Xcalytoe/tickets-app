@@ -7,7 +7,6 @@ import { GetHelpContainer } from "./GetHelp.styled";
 const GetHelp = () => {
   const handleSearch = (e: React.SyntheticEvent, value: string) => {
     e.preventDefault();
-    console.log();
   };
   return (
     <GetHelpContainer className="support">
@@ -55,7 +54,7 @@ const GetHelp = () => {
             />
           </svg>
         </Link>
-        <form className="form">
+        <form className="form" style={{ marginTop: 15 }}>
           <Search placeholder="Search support forum" onChange={handleSearch} />
         </form>
       </main>

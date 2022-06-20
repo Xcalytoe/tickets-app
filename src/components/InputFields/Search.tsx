@@ -3,7 +3,6 @@ import { ISearch } from "../../helper/Typeface";
 import { InputStyle } from "./InputFieldsStyle";
 
 const Search = ({ placeholder, onChange }: ISearch) => {
-  //   const [text, setText] = useState("");
   return (
     <InputStyle>
       <label>
@@ -11,7 +10,6 @@ const Search = ({ placeholder, onChange }: ISearch) => {
           type="search"
           placeholder={placeholder}
           onChange={(e) => {
-            // setText(e.target.value);
             onChange(e, e.target.value);
           }}
         />

@@ -19,7 +19,6 @@ const Select = ({ selectOption, onChange, defaultOption }: ISelect) => {
     setSelectedOption(value);
     onChange(value.value);
     setIsOpen(false);
-    console.log(selectedOption);
   };
   return (
     <InputStyle>
@@ -118,9 +117,10 @@ const DropDownHeader = styled.div<{ type: string }>`
         : "var( --blue)"};
   }
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
   width: 100%;
+  transform: translate(-50%, 0);
 `;
 
 const DropDownList = styled.ul`

@@ -5,11 +5,10 @@ export const NotFoundStyled = styled.div`
   ${variables}
   display: flex;
   justify-content: center;
-  align-itens: center;
+  align-items: center;
   text-align: center;
   height: 100vh;
-  padding-top: 10%;
-  padding-top: 100px;
+
   h1 {
     font-size: 60px;
     color: var(--blue);

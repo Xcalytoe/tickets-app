@@ -17,9 +17,7 @@ export const TicketsContainer = styled.div`
       align-items: center;
       justify-content: space-between;
       column-gap: 20px;
-      height: 90px;
-      padding-left: 30px;
-      padding-right: 30px;
+      padding: 25px 30px;
       p {
         font-style: normal;
         font-weight: 700;
@@ -43,15 +41,41 @@ export const TicketsContainer = styled.div`
     align-items: center;
     column-gap: 26px;
     flex-wrap: wrap;
+
     &-select {
       flex-basis: 160px;
       flex-grow: 1;
       max-width: 160px;
+      min-height: 30px;
     }
     .form {
       flex-basis: 240px;
       flex-grow: 1;
       max-width: 240px;
+      padding: 8px 0;
+    }
+  }
+  @media only screen and (max-width: 590px) {
+    .header {
+      flex-wrap: wrap;
+      justify-content: center;
+      p {
+        flex-grow: 1;
+        text-align: center;
+        max-width: 100% !important;
+      }
+    }
+    .form {
+      order: 1;
+      max-width: 100%;
+      margin: auto;
+    }
+    .ticket {
+      flex-basis: 500px;
+      &-select {
+        order: 2;
+        margin: auto;
+      }
     }
   }
 `;
@@ -59,6 +83,7 @@ export const TicketsContainer = styled.div`
 export const TableStyled = styled.div`
   ${variables}
   padding: 30px;
+  padding-bottom: 15px;
   .flex {
     display: flex;
     display: grid;
@@ -66,6 +91,9 @@ export const TableStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
+    &:last-of-type {
+      border: none;
+    }
     .status {
       flex-basis: 70px;
       max-width: 70px;
@@ -222,6 +250,69 @@ export const TableStyled = styled.div`
           text-transform: capitalize;
           color: var(--primary-text);
         }
+      }
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    header {
+      display: none !important;
+    }
+    .flex {
+      display: grid;
+      grid-template-columns: 1fr 150px;
+      .status {
+        order: 2;
+      }
+      .date {
+        order: 4;
+      }
+      .ticket {
+        order: 1;
+      }
+      .replies {
+        order: 3;
+      }
+    }
+  }
+  @media only screen and (max-width: 530px) {
+    .flex {
+      flex-wrap: wrap;
+      display: flex !important;
+      align-items: unset;
+      .status {
+        flex-shrink: 0;
+        flex-basis: 70px;
+        max-width: 70px;
+        flex-grow: 1;
+        order: 4;
+        padding: 4px 0;
+      }
+      .date {
+        order: 3;
+        flex-shrink: 0;
+        flex-basis: 150px;
+        max-width: 150px;
+        flex-grow: 1;
+        padding: 4px 0;
+      }
+      .ticket {
+        flex-shrink: 0;
+        flex-basis: 260px;
+        max-width: 320px;
+        flex-grow: 1;
+        padding: 4px 0;
+      }
+      .replies {
+        order: 2;
+        flex-shrink: 0;
+        flex-basis: 260px;
+        flex-grow: 1;
+        padding: 4px 0;
+      }
+    }
+    header {
+      &.flex {
+        display: none !important;
       }
     }
   }

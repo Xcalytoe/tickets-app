@@ -44,4 +44,8 @@ h6 ,p,
 a {
   font-family: var(--Roboto);
 }
+img{
+  max-width: 100%;
+  height:auto;
+}
 `;
